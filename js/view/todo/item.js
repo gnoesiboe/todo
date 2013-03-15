@@ -93,8 +93,10 @@ define([
      * Gets called when an item is closed
      */
     onCloseClick: function() {
-      this.model.destroy();
-      this.remove();
+      if (confirm('Weet je zeker dat je dit item wilt verwijderen?') === true) {
+        this.model.destroy();
+        this.remove();
+      }
     },
 
     /**
