@@ -11,7 +11,7 @@ define([
      * @extends {Backbone.View.events}
      */
     events: {
-      'click input[type=checkbox]'  : 'onRowClick',
+      'click input[type=checkbox]'  : 'onCheckboxClick',
       'click .close'                : 'onCloseClick',
       'dblclick'                    : 'onItemDoubleClick',
       'keyup input[name=title]'     : 'onInputTitleKeyup',
@@ -102,7 +102,8 @@ define([
      *
      * @param {jQuery.Event} e
      */
-    onRowClick: function(e) {
+    onCheckboxClick: function(e) {
+      this.$el.removeClass('inactive');
       this.model.toggleStatus().save();
     },
 
