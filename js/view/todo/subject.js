@@ -34,8 +34,8 @@ define([
      * Gets caled on view initialization
      */
     initialize: function() {
-      // makes sure that all events are executed with 'this' as
-      // the context instead of the callback caller object
+      // makes sure that all events are executed with 'this' as context instead of
+      // the callback calling object
       _.bindAll(this);
 
       // @todo add item doesn't need to refresh the whole list, just add a new item at the back
@@ -48,10 +48,8 @@ define([
 
     /**
      * Gets called when the close button is clicked
-     *
-     * @param {Object} e
      */
-    onDeleteSubjectClick: function(e) {
+    onDeleteSubjectClick: function() {
       _.each(this.getItemCollection().filterBySubject(this.model), function(item) {
         item.destroy();
       });
@@ -125,11 +123,13 @@ define([
 
         // @todo when an item is moved from one list to the other but ends at the same index in the other list, this callback is not called!
         if (item instanceof Backbone.Model) {
-          item.set({
-            rank: index,
-            subject_id: self.model.get('id')
-          });
-          item.save();
+          item
+            .set({
+              rank: index,
+              subject_id: self.model.get('id')
+            })
+            .save()
+          ;
         }
       });
     },
@@ -237,7 +237,7 @@ define([
 
     /**
      * @param {Backbone.Model} item
-     * @return {Backbone.View}
+     * @return {Object}
      */
     renderItemView: function(item) {
       var view = new ItemView({

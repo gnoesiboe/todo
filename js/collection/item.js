@@ -17,7 +17,7 @@ define([
 
     /**
      * @param {Backbone.Model} subject
-     * @return {Backbone.Collection.models}
+     * @return {Array}
      */
     filterBySubject: function(subject) {
       return this.filterBySubjectId(subject.id);
@@ -25,7 +25,7 @@ define([
 
     /**
      * @param {Number} subjectId
-     * @return {Backbone.Collection.models}
+     * @return {Array}
      */
     filterBySubjectId: function(subjectId) {
       return this.filter(function(item) {

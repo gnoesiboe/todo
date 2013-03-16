@@ -22,6 +22,9 @@ require.config({
   }
 });
 
-require([ 'sandbox' ], function(Sandbox) {
-  new Sandbox('dev');
+require(['app'], function(App) {
+  (new App())
+    .init()
+    .dispatch()
+  ;
 });

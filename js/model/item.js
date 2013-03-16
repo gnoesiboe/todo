@@ -21,13 +21,6 @@ define([
     },
 
     /**
-     * @return {String}
-     */
-    getAnchorKey: function() {
-      return 'item-' + this.get('subject_id') + '-' + this.cid;
-    },
-
-    /**
      * Togges the status of this model
      *
      * @return [Backbone.Model}
@@ -39,6 +32,8 @@ define([
     },
 
     /**
+     * Returns the CSS class used for the current status
+     *
      * @return {String}
      */
     getStatusClass: function() {

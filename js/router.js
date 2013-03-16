@@ -1,14 +1,13 @@
 define([
-  'lib/freshheads/router',
+  'backbone',
   'view/todo/subjectList'
-], function(Router, TodoSubjectListView) {
-  return Router.extend({
+], function(Backbone, TodoSubjectListView) {
+  return Backbone.Router.extend({
 
     /**
      * @extends Backbone.Router.routes
      */
     routes: {
-      'index': 'index',
 
       // Default
       '*actions': 'homeAction'
@@ -18,8 +17,7 @@ define([
      * Homepage (default action)
      */
     homeAction: function() {
-      var todoSubjectListView = new TodoSubjectListView();
-      todoSubjectListView.render();
+      (new TodoSubjectListView()).render();
     }
   });
 });

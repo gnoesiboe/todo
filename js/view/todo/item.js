@@ -19,18 +19,18 @@ define([
     },
 
     /**
+     * Initialize function
+     */
+    initialize: function() {
+      this.listenTo(this.model, 'change', this.onModelChange);
+    },
+
+    /**
      * Gets called when the focus on the title text input
      * is lost.
      */
     onInputBlur: function() {
       this.toggleEditMode();
-    },
-
-    /**
-     * Initialize function
-     */
-    initialize: function() {
-      this.listenTo(this.model, 'change', this.onModelChange);
     },
 
     /**
@@ -49,11 +49,17 @@ define([
     onInputTitleKeyup: function(e) {
       var keyPressed = parseInt(e.which);
 
-      if (keyPressed === 13) {
-        this.onInputEnter($(e.target).val());
-      }
-      else if (keyPressed === 27) {
-        this.onInputEscape();
+      switch (parseInt(e.which))
+      {
+        //enter
+        case 13:
+          this.onInputEnter($(e.target).val());
+          break;
+
+        // escape
+        case 27:
+          this.onInputEscape();
+          break;
       }
     },
 

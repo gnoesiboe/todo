@@ -28,9 +28,9 @@ define([
     },
 
     /**
-     * @type {Backbone.Collection}
+     * @type {Object}
      */
-    _collection: null,
+    collection: null,
 
     /**
      * Function that gets called during initializing of the view
@@ -155,15 +155,15 @@ define([
     },
 
     /**
-     * @return {Backbone.Collection}
+     * @return {Object}
      */
     getSubjectCollection: function() {
-      if ((this._collection instanceof Backbone.Collection) === true) {
-        return this._collection;
+      if ((this.collection instanceof Backbone.Collection) === true) {
+        return this.collection;
       }
 
-      this._collection = new SubjectCollection();
-      return this._collection;
+      this.collection = new SubjectCollection();
+      return this.collection;
     }
   });
 });
